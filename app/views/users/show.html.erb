@@ -1,0 +1,22 @@
+<% provide :title, @user.name %>
+<table class="table-condensed profile">
+  <tr>
+    <td class="main">
+			<h2><%= gravatar_for @user %>
+			<span style="color:#555;"><%= @user.name %></span>
+			</h2>
+			<div><br/><%= render 'follow_form' if signed_in? %></div>
+			<% if @user.microposts.any? %>
+        <table class="microposts table">
+          <%= render @microposts %>
+        </table>
+        <%= will_paginate @microposts %>
+      <% end %>
+    </td>
+    <td class="sidebar">
+      <strong>Name</strong> <%= @user.name %><br />
+      <strong>Microposts</strong> <%= @user.microposts.count %>
+      <%= render 'shared/stats' %>
+		</td>
+  </tr>
+</table>

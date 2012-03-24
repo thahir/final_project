@@ -1,0 +1,10 @@
+<li>
+  <div><%= gravatar_for user, size: 30 %></div>
+  <div>
+	<%= link_to user.name, user, class: "btn btn-small" %></div>
+  <div>
+  <% if current_user.admin? && !current_user?(user) %>
+    | &nbsp;<%= link_to "delete", user, method: :delete, confirm: "You sure?" %>
+  <% end %>
+	</div>
+</li>
