@@ -15,6 +15,7 @@
 //= require_tree .
 //= require twitter/bootstrap
 
+
 $(function(){
 	var url = window.location.href;
 	url = url.substr(url.indexOf("/", 10));
